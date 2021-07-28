@@ -1,5 +1,7 @@
 package com.bookstore.business.concretes;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,6 +51,11 @@ public class CategoryManager implements CategoryService {
 	@Override
 	public DataResult<Category> getByName(String name) {
 		return new SuccessDataResult<Category>(this.categoryRepository.getByName(name));
+	}
+
+	@Override
+	public DataResult<List<Category>> getAll() {
+		return new SuccessDataResult<List<Category>>(this.categoryRepository.findAll());
 	}
 
 }

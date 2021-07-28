@@ -14,4 +14,23 @@ public class Messages {
 	public static String authorUpdated="yazar güncellendi";
 	public static String authorDeleted="yazar silindi";
 	
+	public static String publisherAdded="yayınEvi eklendi";
+	public static String publisherUpdated="yayınEvi güncellendi";
+	public static String publisherDeleted="yayınEvi silindi";
+
+	public static String customerAdded="yayınEvi eklendi";
+	public static String customerUpdated="yayınEvi güncellendi";
+	public static String customerDeleted="yayınEvi silindi";
+	
+	public static String imageAdded="Resim eklendi";
+	public static String imageUpdated="Resim güncellendi";
+	public static String imageDeleted="Resim silindi";
+	
+	public static String adminAdded="Admin eklendi";
+	public static String adminUpdated="Admin güncellendi";
+	public static String adminDeleted="Admin silindi";
+	
+	public static String userAdded="User eklendi";
+	public static String userUpdated="User güncellendi";
+	public static String userDeleted="User silindi";
 }

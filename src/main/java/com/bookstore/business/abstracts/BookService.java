@@ -14,9 +14,12 @@ public interface BookService {
 	
 	Result delete(int id);
 	
+	
 	DataResult<Book> getById(int bookId);
 	
 	DataResult<Book> getByName(String name);
+	
+	DataResult<List<Book>> getAll();
 	
 	DataResult<List<Book>>  getByAuthor_id(int authorId);
 	

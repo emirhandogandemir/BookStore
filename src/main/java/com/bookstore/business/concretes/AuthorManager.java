@@ -1,5 +1,7 @@
 package com.bookstore.business.concretes;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,6 +56,11 @@ public class AuthorManager implements AuthorService {
 	@Override
 	public DataResult<Author> getByLastName(String lastName) {
 		return new SuccessDataResult<Author>(this.authorRepository.getByLastName(lastName));
+	}
+
+	@Override
+	public DataResult<List<Author>> getAll() {
+		return new SuccessDataResult<List<Author>>(this.authorRepository.findAll());
 	}
 
 }

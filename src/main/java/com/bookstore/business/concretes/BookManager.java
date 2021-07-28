@@ -70,4 +70,9 @@ public class BookManager implements BookService {
 		return new SuccessDataResult<List<Book>>(this.bookRepository.getByCategory_Id(categoryId));
 	}
 
+	@Override
+	public DataResult<List<Book>> getAll() {
+		return new SuccessDataResult<List<Book>>(this.bookRepository.findAll());
+	}
+
 }
