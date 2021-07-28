@@ -36,11 +36,11 @@ public class Book {
 	
 	@Column(name="name")
 	@Size(min = 1, max = 150, message = "About Me must be between 1 and 150 characters")
-	private String bookName;
+	private String name;
 	
 	@Column(name="summary")
 	@Size(min=20,max=1000)
-	private String bookSummary;
+	private String summary;
 	
 	@Column(name="price")
 	@Min(5)
