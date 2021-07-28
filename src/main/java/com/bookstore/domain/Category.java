@@ -21,19 +21,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="categories")
+@Table(name = "categories")
 public class Category {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
+	@Column(name = "id")
 	private int id;
-	
-	@Column(name="name")
-	@Size(min=2,max=30 , message="About Me must be between 2 and 30 characters")
+
+	@Column(name = "name")
+	@Size(min = 2, max = 30, message = "About Me must be between 2 and 30 characters")
 	private String name;
-	
-	 @OneToMany(mappedBy = "category", fetch = FetchType.LAZY,
-	            cascade = CascadeType.ALL)
-	 private Set<Book> books;
+
+	@OneToMany(mappedBy = "category", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private Set<Book> books;
 }

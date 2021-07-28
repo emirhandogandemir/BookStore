@@ -17,6 +17,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.springframework.data.annotation.LastModifiedDate;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
@@ -30,7 +32,6 @@ import lombok.NoArgsConstructor;
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name="users")
 @Entity
-
 public class User {
 
 
@@ -51,8 +52,11 @@ public class User {
 	@Size(min = 6, max = 20, message = "About Me must be between 6 and 20 characters")
 	private String password;
 	
-	@Column(name = "created_at", columnDefinition = "Date default CURRENT_DATE")
+	@Column(name = "created_at")
 	@JsonIgnore
-	private LocalDate createdAt = LocalDate.now();
+	@LastModifiedDate
+	private LocalDate createdAt ;
+	
+	
 	
 }
