@@ -7,6 +7,8 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,25 +31,34 @@ public class PublisherController {
 		super();
 		this.publisherService = publisherService;
 	}
-	public ResponseEntity<?> add(@Valid @RequestBody Publisher publisher){
+
+	@PostMapping("add")
+	public ResponseEntity<?> add(@Valid @RequestBody Publisher publisher) {
 		return ResponseEntity.ok(this.publisherService.add(publisher));
 	}
-	public ResponseEntity<?> update(@Valid @RequestBody Publisher publisher){
+
+	@PostMapping("update")
+	public ResponseEntity<?> update(@Valid @RequestBody Publisher publisher) {
 		return ResponseEntity.ok(this.publisherService.update(publisher));
 	}
-	
+
+	@PostMapping("delete")
 	public Result delete(int id) {
 		return this.publisherService.delete(id);
 	}
-	
-	public DataResult<Publisher> getById(@RequestParam int id){
+
+	@GetMapping("getById")
+	public DataResult<Publisher> getById(@RequestParam int id) {
 		return this.publisherService.getById(id);
 	}
-	public DataResult<Publisher> getByName(@RequestParam String name){
+
+	@GetMapping("getByName")
+	public DataResult<Publisher> getByName(@RequestParam String name) {
 		return this.publisherService.getByName(name);
 	}
-	
-	public DataResult<List<Publisher>> getAll(){
+
+	@GetMapping("getAll")
+	public DataResult<List<Publisher>> getAll() {
 		return this.publisherService.getAll();
 	}
 }

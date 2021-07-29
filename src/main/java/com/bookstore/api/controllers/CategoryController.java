@@ -7,6 +7,8 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,26 +32,35 @@ public class CategoryController {
 		super();
 		this.categoryService = categoryService;
 	}
-	
-	public ResponseEntity<?> add(@Valid @RequestBody Category category){
+
+	@PostMapping("add")
+	public ResponseEntity<?> add(@Valid @RequestBody Category category) {
 		return ResponseEntity.ok(this.categoryService.add(category));
 	}
-	public ResponseEntity<?> update(@Valid @RequestBody Category category){
+
+	@PostMapping("update")
+	public ResponseEntity<?> update(@Valid @RequestBody Category category) {
 		return ResponseEntity.ok(this.categoryService.update(category));
 	}
-	
+
+	@PostMapping("delete")
 	public Result delete(@RequestParam int id) {
 		return this.categoryService.delete(id);
 	}
-	public DataResult<Category> getBYId(@RequestParam int id){
+
+	@GetMapping("getById")
+	public DataResult<Category> getById(@RequestParam int id) {
 		return this.categoryService.getById(id);
 	}
-	public DataResult<Category> getByName(@RequestParam String name){
+
+	@GetMapping("getByName")
+	public DataResult<Category> getByName(@RequestParam String name) {
 		return this.categoryService.getByName(name);
 	}
-	public DataResult<List<Category>> getAll(){
+
+	@GetMapping("getAll")
+	public DataResult<List<Category>> getAll() {
 		return this.categoryService.getAll();
 	}
-	
-	
+
 }

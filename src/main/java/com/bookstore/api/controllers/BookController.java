@@ -7,6 +7,8 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,36 +31,50 @@ public class BookController {
 		super();
 		this.bookService = bookService;
 	}
-	
-	public ResponseEntity<?> add(@Valid @RequestBody Book book){
+
+	@PostMapping("add")
+	public ResponseEntity<?> add(@Valid @RequestBody Book book) {
 		return ResponseEntity.ok(this.bookService.add(book));
 	}
-	
-	public ResponseEntity<?> update(@Valid @RequestBody Book book){
+
+	@PostMapping("update")
+	public ResponseEntity<?> update(@Valid @RequestBody Book book) {
 		return ResponseEntity.ok(this.bookService.update(book));
 	}
+
+	@PostMapping("delete")
 	public Result delete(@RequestParam int id) {
 		return this.bookService.delete(id);
 	}
-	public DataResult<Book> getById(@RequestParam int id){
+
+	@GetMapping("getById")
+	public DataResult<Book> getById(@RequestParam int id) {
 		return this.bookService.getById(id);
 	}
-	public DataResult<Book> getByName(@RequestParam String name){
+
+	@GetMapping("getByName")
+	public DataResult<Book> getByName(@RequestParam String name) {
 		return this.bookService.getByName(name);
 	}
-	public DataResult<List<Book>> getAll(){
+
+	@GetMapping("getAll")
+	public DataResult<List<Book>> getAll() {
 		return this.bookService.getAll();
 	}
-	
-	public DataResult<List<Book>> getByAuthor_id(@RequestParam int authorId){
+
+	@GetMapping("getByAuthorId")
+	public DataResult<List<Book>> getByAuthor_id(@RequestParam int authorId) {
 		return this.bookService.getByAuthor_id(authorId);
 	}
-	public DataResult<List<Book>> getByPublisher_id(@RequestParam int publisherId){
+
+	@GetMapping("getByPublisherId")
+	public DataResult<List<Book>> getByPublisher_id(@RequestParam int publisherId) {
 		return this.bookService.getByPublisher_id(publisherId);
 	}
-	public DataResult<List<Book>> getByCategory_Id(@RequestParam int categoryId){
+
+	@GetMapping("getByCategoryId")
+	public DataResult<List<Book>> getByCategory_Id(@RequestParam int categoryId) {
 		return this.bookService.getByCategory_Id(categoryId);
 	}
-	
-	
+
 }

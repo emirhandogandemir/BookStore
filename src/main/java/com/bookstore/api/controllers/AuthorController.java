@@ -7,6 +7,8 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,26 +31,40 @@ public class AuthorController {
 		super();
 		this.authorService = authorService;
 	}
-	public ResponseEntity<?> add(@Valid @RequestBody Author author){
+
+	@PostMapping("add")
+	public ResponseEntity<?> add(@Valid @RequestBody Author author) {
 		return ResponseEntity.ok(this.authorService.add(author));
 	}
-	public ResponseEntity<?> update(@Valid @RequestBody Author author){
+
+	@PostMapping("update")
+	public ResponseEntity<?> update(@Valid @RequestBody Author author) {
 		return ResponseEntity.ok(this.authorService.update(author));
 	}
+
+	@PostMapping("delete")
 	public Result delete(@RequestParam int id) {
 		return this.authorService.delete(id);
 	}
-	public DataResult<Author> getById(@RequestParam int id){
+
+	@GetMapping("getById")
+	public DataResult<Author> getById(@RequestParam int id) {
 		return this.authorService.getById(id);
 	}
-	public DataResult<Author> getByFirstName(@RequestParam String firstName){
+
+	@GetMapping("getByFirstName")
+	public DataResult<Author> getByFirstName(@RequestParam String firstName) {
 		return this.authorService.getByFirstName(firstName);
 	}
-	public DataResult<Author> getByLastName(@RequestParam String lastName){
+
+	@GetMapping("getByLastName")
+	public DataResult<Author> getByLastName(@RequestParam String lastName) {
 		return this.authorService.getByLastName(lastName);
 	}
-	public DataResult<List<Author>> getAll(){
+
+	@GetMapping("getAll")
+	public DataResult<List<Author>> getAll() {
 		return this.authorService.getAll();
 	}
-	
+
 }

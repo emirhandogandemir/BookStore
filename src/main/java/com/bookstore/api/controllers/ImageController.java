@@ -7,6 +7,8 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,20 +31,29 @@ public class ImageController {
 		super();
 		this.imageService = imageService;
 	}
-	
-	public ResponseEntity<?> add(@Valid @RequestBody Image image){
+
+	@PostMapping("add")
+	public ResponseEntity<?> add(@Valid @RequestBody Image image) {
 		return ResponseEntity.ok(this.imageService.add(image));
 	}
-	public ResponseEntity<?> update(@Valid @RequestBody Image image){
+
+	@PostMapping("update")
+	public ResponseEntity<?> update(@Valid @RequestBody Image image) {
 		return ResponseEntity.ok(this.imageService.update(image));
 	}
+
+	@PostMapping("delete")
 	public Result delete(@RequestParam int id) {
 		return this.imageService.delete(id);
 	}
-	public DataResult<Image> getById(@RequestParam int id){
+
+	@GetMapping("getById")
+	public DataResult<Image> getById(@RequestParam int id) {
 		return this.imageService.getById(id);
 	}
-	public DataResult<List<Image>> getByBook_Id(@RequestParam int bookId){
+
+	@GetMapping("getByBook_Id")
+	public DataResult<List<Image>> getByBook_Id(@RequestParam int bookId) {
 		return this.imageService.getByBook_Id(bookId);
 	}
 }
