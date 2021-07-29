@@ -41,7 +41,6 @@ public class CategoryController {
 	public Result delete(@RequestParam int id) {
 		return this.categoryService.delete(id);
 	}
-	
 	public DataResult<Category> getBYId(@RequestParam int id){
 		return this.categoryService.getById(id);
 	}
