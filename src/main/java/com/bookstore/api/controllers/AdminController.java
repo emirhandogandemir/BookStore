@@ -3,6 +3,7 @@ package com.bookstore.api.controllers;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,7 +38,7 @@ public class AdminController {
 
 	@PostMapping("update")
 	public ResponseEntity<?> update(@Valid @RequestBody Admin admin) {
-		return ResponseEntity.ok(this.adminService.add(admin));
+		return ResponseEntity.ok(this.adminService.update(admin));
 	}
 
 	@PostMapping("delete")
@@ -57,6 +58,6 @@ public class AdminController {
 
 	@GetMapping("getByLastName")
 	public DataResult<Admin> getByLastName(@RequestParam String lastName) {
-		return this.adminService.getByFirstName(lastName);
+		return this.adminService.getByLastName(lastName);
 	}
 }

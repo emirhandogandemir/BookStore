@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,16 +19,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="images")
+@Table(name = "images")
 public class Image {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
+	@Column(name = "id")
 	private int id;
-	
+
+	@Column(name = "url")
+	@NotNull
+	private String url;
+
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="book_id",nullable=false)
+	@JoinColumn(name = "book_id", nullable = false)
 	private Book book;
-	
+
 }

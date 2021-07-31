@@ -20,6 +20,7 @@ import javax.validation.constraints.Size;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,6 +30,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name="users")
 @Entity
@@ -55,7 +57,7 @@ public class User {
 	@Column(name = "created_at")
 	@JsonIgnore
 	@LastModifiedDate
-	private LocalDate createdAt ;
+	private LocalDate createdAt=LocalDate.now() ;
 	
 	
 	

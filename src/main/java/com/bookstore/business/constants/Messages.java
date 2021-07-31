@@ -18,9 +18,9 @@ public class Messages {
 	public static String publisherUpdated="yayınEvi güncellendi";
 	public static String publisherDeleted="yayınEvi silindi";
 
-	public static String customerAdded="yayınEvi eklendi";
-	public static String customerUpdated="yayınEvi güncellendi";
-	public static String customerDeleted="yayınEvi silindi";
+	public static String customerAdded="Müşteri eklendi";
+	public static String customerUpdated="Müşteri güncellendi";
+	public static String customerDeleted="Müşteri silindi";
 	
 	public static String imageAdded="Resim eklendi";
 	public static String imageUpdated="Resim güncellendi";

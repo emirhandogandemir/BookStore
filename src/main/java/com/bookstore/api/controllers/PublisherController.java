@@ -20,7 +20,7 @@ import com.bookstore.core.utilities.results.Result;
 import com.bookstore.domain.Publisher;
 
 @RestController
-@RequestMapping
+@RequestMapping("/api/publishers")
 @CrossOrigin
 public class PublisherController {
 
@@ -43,7 +43,7 @@ public class PublisherController {
 	}
 
 	@PostMapping("delete")
-	public Result delete(int id) {
+	public Result delete( @RequestParam int id) {
 		return this.publisherService.delete(id);
 	}
 

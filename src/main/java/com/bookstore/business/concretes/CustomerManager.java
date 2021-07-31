@@ -46,8 +46,7 @@ public class CustomerManager implements CustomerService {
 
 	@Override
 	public DataResult<Customer> getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return new SuccessDataResult<Customer>(this.customerRepository.getById(id));
 	}
 
 	@Override

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.bookstore.business.abstracts.ImageService;
 import com.bookstore.core.utilities.results.DataResult;
@@ -33,9 +34,12 @@ public class ImageController {
 	}
 
 	@PostMapping("add")
-	public ResponseEntity<?> add(@Valid @RequestBody Image image) {
-		return ResponseEntity.ok(this.imageService.add(image));
+	public Result add(@RequestParam(value = "imageFile") MultipartFile imageFile,@RequestBody Image image) {
+		
+	
+		return this.imageService.add(image, imageFile);
 	}
+	
 
 	@PostMapping("update")
 	public ResponseEntity<?> update(@Valid @RequestBody Image image) {

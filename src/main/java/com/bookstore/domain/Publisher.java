@@ -1,5 +1,6 @@
 package com.bookstore.domain;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -14,6 +15,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,6 +26,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name="publisher")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler","books"})
 public class Publisher {
 
 	@Id
@@ -43,6 +47,6 @@ public class Publisher {
 	private String webSite;
 	
 	@OneToMany(mappedBy="publisher",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-	private Set<Book> books;
+	private List<Book> books;
 	
 }

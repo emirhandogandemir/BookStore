@@ -1,4 +1,4 @@
-package com.bookstore.core.crossCuttingConcerns.exceptionhandling;
+package com.bookstore.core.crosscuttingconcerns.exception;
 
 import java.util.HashMap;
 import java.util.Map;

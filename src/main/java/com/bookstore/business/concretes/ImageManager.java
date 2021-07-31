@@ -1,12 +1,15 @@
 package com.bookstore.business.concretes;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.bookstore.business.abstracts.ImageService;
 import com.bookstore.business.constants.Messages;
+import com.bookstore.core.utilities.cloud.cloudinary.CloudinaryService;
 import com.bookstore.core.utilities.results.DataResult;
 import com.bookstore.core.utilities.results.Result;
 import com.bookstore.core.utilities.results.SuccessDataResult;
@@ -18,15 +21,19 @@ import com.bookstore.repository.ImageRepository;
 public class ImageManager implements ImageService {
 
 	private ImageRepository imageRepository;
+	private CloudinaryService cloudinaryService;
 	
 	@Autowired
-	public ImageManager(ImageRepository imageRepository) {
+	public ImageManager(ImageRepository imageRepository,CloudinaryService cloudinaryService) {
 		super();
 		this.imageRepository = imageRepository;
+		this.cloudinaryService=cloudinaryService;
 	}
 
 	@Override
-	public Result add(Image image) {
+	public Result add(Image image, MultipartFile imageFile) {
+		Map<String,String> uploadImage = this.cloudinaryService.uploadImageFile(imageFile).getData();
+		image.setUrl(uploadImage.get("url"));
 	this.imageRepository.save(image);
 	return new SuccessResult(Messages.imageAdded);
 	}
