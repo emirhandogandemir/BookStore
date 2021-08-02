@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,10 +35,8 @@ public class ImageController {
 	}
 
 	@PostMapping("add")
-	public Result add(@RequestParam(value = "imageFile") MultipartFile imageFile,@RequestBody Image image) {
-		
-	
-		return this.imageService.add(image, imageFile);
+	public ResponseEntity<?> add(@ModelAttribute Image image,@RequestParam(value = "imageFile") MultipartFile imageFile) {
+		return ResponseEntity.ok(this.imageService.add(image, imageFile));
 	}
 	
 

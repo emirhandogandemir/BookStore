@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.bookstore.business.abstracts.BookService;
 import com.bookstore.business.constants.Messages;
+import com.bookstore.core.aspects.performance.Performance;
 import com.bookstore.core.utilities.results.DataResult;
 import com.bookstore.core.utilities.results.Result;
 import com.bookstore.core.utilities.results.SuccessDataResult;
@@ -18,8 +19,7 @@ import com.bookstore.repository.BookRepository;
 public class BookManager implements BookService {
 
 	private BookRepository bookRepository;
-	
-	
+
 	@Autowired
 	public BookManager(BookRepository bookRepository) {
 		super();
@@ -30,7 +30,7 @@ public class BookManager implements BookService {
 	public Result add(Book book) {
 		this.bookRepository.save(book);
 		return new SuccessResult(Messages.bookAdded);
-		
+
 	}
 
 	@Override
@@ -44,35 +44,39 @@ public class BookManager implements BookService {
 		this.bookRepository.deleteById(id);
 		return new SuccessResult(Messages.bookDeleted);
 	}
-
+	@Performance
 	@Override
 	public DataResult<Book> getById(int bookId) {
 		return new SuccessDataResult<Book>(this.bookRepository.getById(bookId));
 	}
-
+	@Performance
 	@Override
 	public DataResult<Book> getByName(String name) {
 		return new SuccessDataResult<Book>(this.bookRepository.getByName(name));
 	}
-
+	@Performance
 	@Override
 	public DataResult<List<Book>> getByAuthor_id(int authorId) {
 		return new SuccessDataResult<List<Book>>(this.bookRepository.getByAuthor_id(authorId));
 	}
-
+	@Performance
 	@Override
 	public DataResult<List<Book>> getByPublisher_id(int publisherId) {
 		return new SuccessDataResult<List<Book>>(this.bookRepository.getByPublisher_id(publisherId));
 	}
-
+	@Performance
 	@Override
 	public DataResult<List<Book>> getByCategory_Id(int categoryId) {
 		return new SuccessDataResult<List<Book>>(this.bookRepository.getByCategory_Id(categoryId));
 	}
 
+	@Performance
 	@Override
 	public DataResult<List<Book>> getAll() {
 		return new SuccessDataResult<List<Book>>(this.bookRepository.findAll());
 	}
 
+	public void naber() {
+		System.out.println("naber kanks");
+	}
 }

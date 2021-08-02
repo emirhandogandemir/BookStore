@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bookstore.business.abstracts.BookService;
+import com.bookstore.core.aspects.performance.Performance;
 import com.bookstore.core.utilities.results.DataResult;
 import com.bookstore.core.utilities.results.Result;
 import com.bookstore.domain.Book;
@@ -56,7 +57,6 @@ public class BookController {
 	public DataResult<Book> getByName(@RequestParam String name) {
 		return this.bookService.getByName(name);
 	}
-
 	@GetMapping("getAll")
 	public DataResult<List<Book>> getAll() {
 		return this.bookService.getAll();
@@ -77,4 +77,8 @@ public class BookController {
 		return this.bookService.getByCategory_Id(categoryId);
 	}
 
+	@GetMapping("naber")
+	public void naber() {
+		this.bookService.naber();
+	}
 }
