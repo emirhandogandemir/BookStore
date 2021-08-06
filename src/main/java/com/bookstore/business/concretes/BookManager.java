@@ -7,28 +7,34 @@ import org.springframework.stereotype.Service;
 
 import com.bookstore.business.abstracts.BookService;
 import com.bookstore.business.constants.Messages;
-import com.bookstore.core.aspects.performance.Performance;
+import com.bookstore.core.aspects.performance.PerformanceAspect;
 import com.bookstore.core.utilities.results.DataResult;
 import com.bookstore.core.utilities.results.Result;
 import com.bookstore.core.utilities.results.SuccessDataResult;
 import com.bookstore.core.utilities.results.SuccessResult;
 import com.bookstore.domain.Book;
+import com.bookstore.domain.dtos.BookDto;
+import com.bookstore.domain.mapper.BookMapper;
 import com.bookstore.repository.BookRepository;
 
 @Service
 public class BookManager implements BookService {
 
 	private BookRepository bookRepository;
-
+	private BookMapper bookMapper;
+	
 	@Autowired
-	public BookManager(BookRepository bookRepository) {
+	public BookManager(BookRepository bookRepository,BookMapper bookMapper) {
 		super();
 		this.bookRepository = bookRepository;
+		this.bookMapper=bookMapper;
 	}
 
 	@Override
-	public Result add(Book book) {
-		this.bookRepository.save(book);
+	public Result add(BookDto book) {
+		Book book1 = bookMapper.dtoToModel(book);
+		this.bookRepository.save(book1);
+		
 		return new SuccessResult(Messages.bookAdded);
 
 	}
@@ -44,39 +50,37 @@ public class BookManager implements BookService {
 		this.bookRepository.deleteById(id);
 		return new SuccessResult(Messages.bookDeleted);
 	}
-	@Performance
+	@PerformanceAspect
 	@Override
 	public DataResult<Book> getById(int bookId) {
 		return new SuccessDataResult<Book>(this.bookRepository.getById(bookId));
 	}
-	@Performance
+	@PerformanceAspect
 	@Override
 	public DataResult<Book> getByName(String name) {
 		return new SuccessDataResult<Book>(this.bookRepository.getByName(name));
 	}
-	@Performance
+	@PerformanceAspect
 	@Override
 	public DataResult<List<Book>> getByAuthor_id(int authorId) {
 		return new SuccessDataResult<List<Book>>(this.bookRepository.getByAuthor_id(authorId));
 	}
-	@Performance
+	@PerformanceAspect
 	@Override
 	public DataResult<List<Book>> getByPublisher_id(int publisherId) {
 		return new SuccessDataResult<List<Book>>(this.bookRepository.getByPublisher_id(publisherId));
 	}
-	@Performance
+	@PerformanceAspect
 	@Override
 	public DataResult<List<Book>> getByCategory_Id(int categoryId) {
 		return new SuccessDataResult<List<Book>>(this.bookRepository.getByCategory_Id(categoryId));
 	}
 
-	@Performance
+	@PerformanceAspect
 	@Override
 	public DataResult<List<Book>> getAll() {
 		return new SuccessDataResult<List<Book>>(this.bookRepository.findAll());
 	}
 
-	public void naber() {
-		System.out.println("naber kanks");
-	}
+	
 }

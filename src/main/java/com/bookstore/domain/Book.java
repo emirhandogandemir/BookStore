@@ -26,11 +26,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Entity
 
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
 @JsonIgnoreProperties( value = {"hibernateLazyInitializer", "handler","images"})
 @Table(name = "books")
 
@@ -72,5 +73,6 @@ public class Book {
 	 
 	@OneToMany(mappedBy = "book", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Image> images;
+
 
 }

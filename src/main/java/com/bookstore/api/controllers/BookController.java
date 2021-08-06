@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bookstore.business.abstracts.BookService;
-import com.bookstore.core.aspects.performance.Performance;
 import com.bookstore.core.utilities.results.DataResult;
 import com.bookstore.core.utilities.results.Result;
 import com.bookstore.domain.Book;
+import com.bookstore.domain.dtos.BookDto;
 
 @RestController
 @RequestMapping("/api/books")
@@ -34,7 +34,7 @@ public class BookController {
 	}
 
 	@PostMapping("add")
-	public ResponseEntity<?> add(@Valid @RequestBody Book book) {
+	public ResponseEntity<?> add(@Valid @RequestBody BookDto book) {
 		return ResponseEntity.ok(this.bookService.add(book));
 	}
 
@@ -77,8 +77,4 @@ public class BookController {
 		return this.bookService.getByCategory_Id(categoryId);
 	}
 
-	@GetMapping("naber")
-	public void naber() {
-		this.bookService.naber();
-	}
 }

@@ -5,10 +5,11 @@ import java.util.List;
 import com.bookstore.core.utilities.results.DataResult;
 import com.bookstore.core.utilities.results.Result;
 import com.bookstore.domain.Book;
+import com.bookstore.domain.dtos.BookDto;
 
 public interface BookService {
 
-	Result add(Book book);
+	Result add(BookDto book);
 	
 	Result update (Book book);
 	
@@ -28,7 +29,7 @@ public interface BookService {
 	DataResult<List<Book>>  getByPublisher_id(int publisherId);
 	
 	DataResult<List<Book>> getByCategory_Id(int categoryId);
-void naber();
+
 	
 	
 }

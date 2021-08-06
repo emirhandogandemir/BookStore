@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Order(1)
 public class PerformanceLoggerAspect {
 
-	@Around("@annotation(com.bookstore.core.aspects.performance.Performance)")
+	@Around("@annotation(com.bookstore.core.aspects.performance.PerformanceAspect)")
 	public Object profile(ProceedingJoinPoint pjp) throws Throwable {
 		long start = System.currentTimeMillis();
 		System.out.println("Metot öncesi: " + pjp.getSignature());
