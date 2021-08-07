@@ -1,5 +1,8 @@
 package com.bookstore.core.business;
 
-public class BusinessRules {
+import org.springframework.stereotype.Component;
 
+@Component
+public class BusinessRules {
+// business rules engine will be here
 }
