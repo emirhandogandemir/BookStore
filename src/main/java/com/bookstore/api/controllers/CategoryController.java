@@ -18,6 +18,7 @@ import com.bookstore.business.abstracts.CategoryService;
 import com.bookstore.core.utilities.results.DataResult;
 import com.bookstore.core.utilities.results.Result;
 import com.bookstore.domain.Category;
+import com.bookstore.domain.dtos.CategoryDto;
 
 @RestController
 @RequestMapping("/api/categories")
@@ -34,13 +35,13 @@ public class CategoryController {
 	}
 
 	@PostMapping("add")
-	public ResponseEntity<?> add(@Valid @RequestBody Category category) {
-		return ResponseEntity.ok(this.categoryService.add(category));
+	public ResponseEntity<?> add(@Valid @RequestBody CategoryDto categoryDto) {
+		return ResponseEntity.ok(this.categoryService.add(categoryDto));
 	}
 
 	@PostMapping("update")
-	public ResponseEntity<?> update(@Valid @RequestBody Category category) {
-		return ResponseEntity.ok(this.categoryService.update(category));
+	public ResponseEntity<?> update(@Valid @RequestBody CategoryDto categoryDto) {
+		return ResponseEntity.ok(this.categoryService.update(categoryDto));
 	}
 
 	@PostMapping("delete")

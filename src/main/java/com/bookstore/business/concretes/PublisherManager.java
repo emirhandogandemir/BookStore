@@ -12,28 +12,32 @@ import com.bookstore.core.utilities.results.Result;
 import com.bookstore.core.utilities.results.SuccessDataResult;
 import com.bookstore.core.utilities.results.SuccessResult;
 import com.bookstore.domain.Publisher;
+import com.bookstore.domain.dtos.PublisherDto;
+import com.bookstore.domain.mapper.PublisherMapper;
 import com.bookstore.repository.PublisherRepository;
 
 @Service
 public class PublisherManager implements PublisherService{
 
 	private PublisherRepository publisherRepository;
+	private PublisherMapper publisherMapper;
 	
 	@Autowired
-	public PublisherManager(PublisherRepository publisherRepository) {
+	public PublisherManager(PublisherRepository publisherRepository,PublisherMapper publisherMapper) {
 		super();
 		this.publisherRepository = publisherRepository;
+		this.publisherMapper=publisherMapper;
 	}
 
 	@Override
-	public Result add(Publisher publisher) {
-		this.publisherRepository.save(publisher);
+	public Result add(PublisherDto publisherDto) {
+		this.publisherRepository.save(publisherMapper.dtoToModel(null));
 		return new SuccessResult(Messages.publisherAdded);
 	}
 
 	@Override
-	public Result update(Publisher publisher) {
-		this.publisherRepository.save(publisher);
+	public Result update(PublisherDto publisherDto) {
+		this.publisherRepository.save(publisherMapper.dtoToModel(publisherDto));
 		return new SuccessResult(Messages.publisherUpdated);
 	}
 

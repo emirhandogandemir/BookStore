@@ -17,6 +17,7 @@ import com.bookstore.business.abstracts.CustomerService;
 import com.bookstore.core.utilities.results.DataResult;
 import com.bookstore.core.utilities.results.Result;
 import com.bookstore.domain.Customer;
+import com.bookstore.domain.dtos.CustomerDto;
 
 @RestController
 @RequestMapping("/api/customers")
@@ -31,13 +32,13 @@ public class CustomerController {
 	}
 
 	@PostMapping("add")
-	public ResponseEntity<?> add(@Valid @RequestBody Customer customer) {
-		return ResponseEntity.ok(this.customerService.add(customer));
+	public ResponseEntity<?> add(@Valid @RequestBody CustomerDto customerDto) {
+		return ResponseEntity.ok(this.customerService.add(customerDto));
 	}
 
 	@PostMapping("update")
-	public ResponseEntity<?> update(@Valid @RequestBody Customer customer) {
-		return ResponseEntity.ok(this.customerService.update(customer));
+	public ResponseEntity<?> update(@Valid @RequestBody CustomerDto customerDto) {
+		return ResponseEntity.ok(this.customerService.update(customerDto));
 	}
 
 	@PostMapping("delete")

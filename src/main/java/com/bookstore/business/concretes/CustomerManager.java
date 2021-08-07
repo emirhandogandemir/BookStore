@@ -12,28 +12,32 @@ import com.bookstore.core.utilities.results.Result;
 import com.bookstore.core.utilities.results.SuccessDataResult;
 import com.bookstore.core.utilities.results.SuccessResult;
 import com.bookstore.domain.Customer;
+import com.bookstore.domain.dtos.CustomerDto;
+import com.bookstore.domain.mapper.CustomerMapper;
 import com.bookstore.repository.CustomerRepository;
 
 @Service
 public class CustomerManager implements CustomerService {
 
 	private CustomerRepository customerRepository;
+	private CustomerMapper customerMapper;
 	
 	@Autowired
-	public CustomerManager(CustomerRepository customerRepository) {
+	public CustomerManager(CustomerRepository customerRepository,CustomerMapper customerMapper) {
 		super();
 		this.customerRepository = customerRepository;
+		this.customerMapper=customerMapper;
 	}
 
 	@Override
-	public Result add(Customer customer) {
-		this.customerRepository.save(customer);
+	public Result add(CustomerDto customerDto) {
+		this.customerRepository.save(customerMapper.dtoToModel(customerDto));
 		return new SuccessResult(Messages.customerAdded);
 	}
 
 	@Override
-	public Result update(Customer customer) {
-		this.customerRepository.save(customer);
+	public Result update(CustomerDto customerDto) {
+		this.customerRepository.save(customerMapper.dtoToModel(customerDto));
 		return new SuccessResult(Messages.customerUpdated);
 	}
 

@@ -5,12 +5,13 @@ import java.util.List;
 import com.bookstore.core.utilities.results.DataResult;
 import com.bookstore.core.utilities.results.Result;
 import com.bookstore.domain.Category;
+import com.bookstore.domain.dtos.CategoryDto;
 
 public interface CategoryService {
 
-	Result add(Category category);
+	Result add(CategoryDto category);
 	
-	Result update(Category category);
+	Result update(CategoryDto category);
 	
 	Result delete(int id);
 	

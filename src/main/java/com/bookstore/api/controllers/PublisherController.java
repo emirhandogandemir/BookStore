@@ -18,6 +18,7 @@ import com.bookstore.business.abstracts.PublisherService;
 import com.bookstore.core.utilities.results.DataResult;
 import com.bookstore.core.utilities.results.Result;
 import com.bookstore.domain.Publisher;
+import com.bookstore.domain.dtos.PublisherDto;
 
 @RestController
 @RequestMapping("/api/publishers")
@@ -33,12 +34,12 @@ public class PublisherController {
 	}
 
 	@PostMapping("add")
-	public ResponseEntity<?> add(@Valid @RequestBody Publisher publisher) {
+	public ResponseEntity<?> add(@Valid @RequestBody PublisherDto publisher) {
 		return ResponseEntity.ok(this.publisherService.add(publisher));
 	}
 
 	@PostMapping("update")
-	public ResponseEntity<?> update(@Valid @RequestBody Publisher publisher) {
+	public ResponseEntity<?> update(@Valid @RequestBody PublisherDto publisher) {
 		return ResponseEntity.ok(this.publisherService.update(publisher));
 	}
 

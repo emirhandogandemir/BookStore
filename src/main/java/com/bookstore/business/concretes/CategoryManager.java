@@ -12,28 +12,32 @@ import com.bookstore.core.utilities.results.Result;
 import com.bookstore.core.utilities.results.SuccessDataResult;
 import com.bookstore.core.utilities.results.SuccessResult;
 import com.bookstore.domain.Category;
+import com.bookstore.domain.dtos.CategoryDto;
+import com.bookstore.domain.mapper.CategoryMapper;
 import com.bookstore.repository.CategoryRepository;
 
 @Service
 public class CategoryManager implements CategoryService {
 
 	private CategoryRepository categoryRepository;
+	private CategoryMapper categoryMapper;
 	
 	@Autowired
-	public CategoryManager(CategoryRepository categoryRepository) {
+	public CategoryManager(CategoryRepository categoryRepository,CategoryMapper categoryMapper) {
 		super();
 		this.categoryRepository = categoryRepository;
+		this.categoryMapper= categoryMapper;
 	}
 
 	@Override
-	public Result add(Category category) {
-		this.categoryRepository.save(category);
+	public Result add(CategoryDto categoryDto) {
+		this.categoryRepository.save(categoryMapper.dtoToModel(categoryDto));
 		return new SuccessResult(Messages.categoryAdded);
 	}
 
 	@Override
-	public Result update(Category category) {
-		this.categoryRepository.save(category);
+	public Result update(CategoryDto categoryDto) {
+		this.categoryRepository.save(categoryMapper.dtoToModel(categoryDto));
 		return new SuccessResult(Messages.categoryUpdated);
 	}
 
