@@ -42,11 +42,16 @@ public class User {
 	@Column(name = "id")
 	private int id;
 
-	@Column(name = "email")
+	@Column(name = "email",unique = true)
 	@Email
 	@NotBlank
 	@NotNull
 	private String email;
+	
+	@NotBlank
+	@Size(max = 20)
+	@Column(name="userName",unique = true)
+	private String userName;
 
 	@Column(name = "password")
 	@NotBlank
