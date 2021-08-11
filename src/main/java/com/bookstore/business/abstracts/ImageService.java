@@ -8,6 +8,9 @@ import com.bookstore.core.utilities.results.DataResult;
 import com.bookstore.core.utilities.results.Result;
 import com.bookstore.domain.Image;
 
+
+
+
 public interface ImageService {
 
 	Result add(Image image,MultipartFile imageFile);
@@ -20,7 +23,7 @@ public interface ImageService {
 	
 	DataResult<List<Image>>  getByBook_Id(int id);
 	
-
+	DataResult<List<Image>>  getAll();
 
 	
 }

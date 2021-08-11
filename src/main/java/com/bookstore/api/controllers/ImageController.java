@@ -21,6 +21,8 @@ import com.bookstore.core.utilities.results.DataResult;
 import com.bookstore.core.utilities.results.Result;
 import com.bookstore.domain.Image;
 
+
+
 @RestController
 @RequestMapping("/api/images")
 @CrossOrigin
@@ -58,5 +60,9 @@ public class ImageController {
 	@GetMapping("getByBook_Id")
 	public DataResult<List<Image>> getByBook_Id(@RequestParam int bookId) {
 		return this.imageService.getByBook_Id(bookId);
+	}
+	@GetMapping("getAll")
+	public DataResult<List<Image>> getAll(){
+		return this.imageService.getAll();
 	}
 }

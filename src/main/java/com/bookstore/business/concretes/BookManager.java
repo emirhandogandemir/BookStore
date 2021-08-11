@@ -21,6 +21,7 @@ import com.bookstore.repository.BookRepository;
 public class BookManager implements BookService {
 
 	private final BookRepository bookRepository;
+	
 	private final BookMapper bookMapper;
 	
 	

@@ -71,7 +71,7 @@ public class Book {
 	private Category category;
 
 	 
-	@OneToMany(mappedBy = "book", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "book")
 	private List<Image> images;
 
 
