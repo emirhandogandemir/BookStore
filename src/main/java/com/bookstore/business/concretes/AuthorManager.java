@@ -17,11 +17,11 @@ import com.bookstore.repository.AuthorRepository;
 @Service
 public class AuthorManager implements AuthorService {
 
-	private AuthorRepository authorRepository;
+	private final AuthorRepository authorRepository;
 	
-	@Autowired
+	
 	public AuthorManager(AuthorRepository authorRepository) {
-		super();
+		
 		this.authorRepository = authorRepository;
 	}
 

@@ -26,11 +26,11 @@ import com.bookstore.domain.Image;
 @CrossOrigin
 public class ImageController {
 
-	private ImageService imageService;
+	private final ImageService imageService;
 
-	@Autowired
+	
 	public ImageController(ImageService imageService) {
-		super();
+		
 		this.imageService = imageService;
 	}
 

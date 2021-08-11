@@ -19,12 +19,12 @@ import com.bookstore.repository.CustomerRepository;
 @Service
 public class CustomerManager implements CustomerService {
 
-	private CustomerRepository customerRepository;
-	private CustomerMapper customerMapper;
+	private final CustomerRepository customerRepository;
+	private final CustomerMapper customerMapper;
 	
-	@Autowired
+	
 	public CustomerManager(CustomerRepository customerRepository,CustomerMapper customerMapper) {
-		super();
+		
 		this.customerRepository = customerRepository;
 		this.customerMapper=customerMapper;
 	}

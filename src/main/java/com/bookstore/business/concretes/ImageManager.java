@@ -20,12 +20,12 @@ import com.bookstore.repository.ImageRepository;
 @Service
 public class ImageManager implements ImageService {
 
-	private ImageRepository imageRepository;
-	private CloudinaryService cloudinaryService;
+	private final ImageRepository imageRepository;
+	private final CloudinaryService cloudinaryService;
 	
-	@Autowired
+	
 	public ImageManager(ImageRepository imageRepository,CloudinaryService cloudinaryService) {
-		super();
+		
 		this.imageRepository = imageRepository;
 		this.cloudinaryService=cloudinaryService;
 	}

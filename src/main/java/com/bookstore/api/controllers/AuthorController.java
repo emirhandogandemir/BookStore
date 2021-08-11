@@ -24,11 +24,11 @@ import com.bookstore.domain.Author;
 @CrossOrigin
 public class AuthorController {
 
-	private AuthorService authorService;
+	private final AuthorService authorService;
 
-	@Autowired
+
 	public AuthorController(AuthorService authorService) {
-		super();
+		
 		this.authorService = authorService;
 	}
 

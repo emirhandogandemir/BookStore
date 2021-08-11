@@ -18,12 +18,12 @@ import com.bookstore.repository.AdminRepository;
 @Primary
 public class AdminManager implements AdminService{
 
-	private AdminRepository adminRepository;
+	private final AdminRepository adminRepository;
 	
 	
-	@Autowired
+	
 	public AdminManager(AdminRepository adminRepository) {
-		super();
+		
 		this.adminRepository = adminRepository;
 	}
 

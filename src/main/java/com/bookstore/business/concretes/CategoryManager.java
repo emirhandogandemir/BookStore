@@ -19,12 +19,12 @@ import com.bookstore.repository.CategoryRepository;
 @Service
 public class CategoryManager implements CategoryService {
 
-	private CategoryRepository categoryRepository;
-	private CategoryMapper categoryMapper;
+	private final CategoryRepository categoryRepository;
+	private final CategoryMapper categoryMapper;
 	
-	@Autowired
+	
 	public CategoryManager(CategoryRepository categoryRepository,CategoryMapper categoryMapper) {
-		super();
+		
 		this.categoryRepository = categoryRepository;
 		this.categoryMapper= categoryMapper;
 	}

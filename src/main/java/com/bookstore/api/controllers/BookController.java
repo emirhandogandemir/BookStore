@@ -25,11 +25,11 @@ import com.bookstore.domain.dtos.BookDto;
 @CrossOrigin
 public class BookController {
 
-	private BookService bookService;
+	private final BookService bookService;
 
-	@Autowired
+	
 	public BookController(BookService bookService) {
-		super();
+		
 		this.bookService = bookService;
 	}
 

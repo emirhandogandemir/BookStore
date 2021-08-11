@@ -23,11 +23,11 @@ import com.bookstore.domain.dtos.CustomerDto;
 @RequestMapping("/api/customers")
 public class CustomerController {
 
-	private CustomerService customerService;
+	private final CustomerService customerService;
 
-	@Autowired
+	
 	public CustomerController(CustomerService customerService) {
-		super();
+		
 		this.customerService = customerService;
 	}
 

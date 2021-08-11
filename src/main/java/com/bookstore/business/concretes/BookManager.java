@@ -20,12 +20,12 @@ import com.bookstore.repository.BookRepository;
 @Service
 public class BookManager implements BookService {
 
-	private BookRepository bookRepository;
-	private BookMapper bookMapper;
+	private final BookRepository bookRepository;
+	private final BookMapper bookMapper;
 	
-	@Autowired
+	
 	public BookManager(BookRepository bookRepository,BookMapper bookMapper) {
-		super();
+		
 		this.bookRepository = bookRepository;
 		this.bookMapper=bookMapper;
 	}

@@ -19,12 +19,12 @@ import com.bookstore.repository.PublisherRepository;
 @Service
 public class PublisherManager implements PublisherService{
 
-	private PublisherRepository publisherRepository;
-	private PublisherMapper publisherMapper;
+	private final PublisherRepository publisherRepository;
+	private final PublisherMapper publisherMapper;
 	
-	@Autowired
+
 	public PublisherManager(PublisherRepository publisherRepository,PublisherMapper publisherMapper) {
-		super();
+		
 		this.publisherRepository = publisherRepository;
 		this.publisherMapper=publisherMapper;
 	}

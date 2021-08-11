@@ -26,11 +26,11 @@ import com.bookstore.domain.dtos.CategoryDto;
 
 public class CategoryController {
 
-	private CategoryService categoryService;
+	private final CategoryService categoryService;
 
-	@Autowired
+	
 	public CategoryController(CategoryService categoryService) {
-		super();
+		
 		this.categoryService = categoryService;
 	}
 

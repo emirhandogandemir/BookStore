@@ -17,18 +17,17 @@ import com.bookstore.core.utilities.results.SuccessResult;
 @Service
 public class UserManager implements UserService {
 
-	private UserRepository userRepository;
-	
-	@Autowired
+	private final UserRepository userRepository;
+
 	public UserManager(UserRepository userRepository) {
-		super();
+
 		this.userRepository = userRepository;
 	}
 
 	@Override
 	public Result add(User user) {
-	this.userRepository.save(user);
-	return new SuccessResult(Messages.userAdded);
+		this.userRepository.save(user);
+		return new SuccessResult(Messages.userAdded);
 	}
 
 	@Override
@@ -55,7 +54,7 @@ public class UserManager implements UserService {
 
 	@Override
 	public DataResult<User> getUserByEmail(String email) {
-	return new SuccessDataResult<User>(this.userRepository.getByEmail(email));
+		return new SuccessDataResult<User>(this.userRepository.getByEmail(email));
 	}
 
 }

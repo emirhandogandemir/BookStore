@@ -23,11 +23,11 @@ import com.bookstore.domain.Admin;
 @CrossOrigin
 public class AdminController {
 
-	private AdminService adminService;
+	private final AdminService adminService;
 
-	@Autowired
+	
 	public AdminController(AdminService adminService) {
-		super();
+		
 		this.adminService = adminService;
 	}
 

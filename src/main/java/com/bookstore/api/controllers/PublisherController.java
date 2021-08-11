@@ -25,11 +25,11 @@ import com.bookstore.domain.dtos.PublisherDto;
 @CrossOrigin
 public class PublisherController {
 
-	private PublisherService publisherService;
+	private final PublisherService publisherService;
 
-	@Autowired
+	
 	public PublisherController(PublisherService publisherService) {
-		super();
+		
 		this.publisherService = publisherService;
 	}
 
