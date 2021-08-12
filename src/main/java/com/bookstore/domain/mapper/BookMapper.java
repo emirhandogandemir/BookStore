@@ -10,7 +10,7 @@ import com.bookstore.domain.dtos.BookDto;
 public interface BookMapper {
 	
 	BookDto modelToDto(Book book);
-	@Mapping(target = "images", ignore = true)
+	
 	Book dtoToModel(BookDto bookDto);
 	
 	

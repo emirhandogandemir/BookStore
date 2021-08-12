@@ -25,7 +25,7 @@ public class BookDto {
 	private String editionNumber;
 	private Publisher publisher;
 	private Author author;
-	private List<Image> images;
+	private Image image;
 	private Category category;
 
 	

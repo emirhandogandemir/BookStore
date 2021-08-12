@@ -1,5 +1,7 @@
 package com.bookstore.domain.dtos;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -25,5 +27,5 @@ public class ImageDto {
 
 	private String url;
 
-	private Book book;
+	private List<Book> books;
 }

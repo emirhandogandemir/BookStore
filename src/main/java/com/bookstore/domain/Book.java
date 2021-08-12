@@ -18,7 +18,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -32,7 +32,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@JsonIgnoreProperties( value = {"hibernateLazyInitializer", "handler","images"})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "books")
 
 public class Book {
@@ -70,9 +70,10 @@ public class Book {
 	@JoinColumn(name = "category_id", nullable = false)
 	private Category category;
 
-	 
-	@OneToMany(mappedBy = "book")
-	private List<Image> images;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "image_id",nullable=false)
+	private Image image;
+
 
 
 }

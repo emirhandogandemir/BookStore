@@ -55,10 +55,7 @@ public class ImageManager implements ImageService {
 	return new SuccessDataResult<Image> (this.imageRepository.getById(id));
 	}
 
-	@Override
-	public DataResult<List<Image>> getByBook_Id(int id) {
-	return new SuccessDataResult<List<Image>> (this.imageRepository.getByBook_Id(id));
-	}
+	
 
 	@Override
 	public DataResult<List<Image>> getAll() {

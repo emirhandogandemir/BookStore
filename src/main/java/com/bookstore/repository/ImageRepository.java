@@ -13,6 +13,5 @@ public interface ImageRepository extends JpaRepository<Image, Integer> {
 
 	Image getById(int id);
 	
-	List<Image> getByBook_Id(int id);
 	
 }

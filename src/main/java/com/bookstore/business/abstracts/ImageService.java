@@ -21,7 +21,6 @@ public interface ImageService {
 	
 	DataResult<Image>  getById(int id);
 	
-	DataResult<List<Image>>  getByBook_Id(int id);
 	
 	DataResult<List<Image>>  getAll();
 
