@@ -27,6 +27,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -56,8 +57,8 @@ public class User {
 	
 	@NotBlank
 	@Size(max = 20)
-	@Column(name="userName",unique = true)
-	private String userName;
+	@Column(name="username",unique = true)
+	private String username;
 
 	@Column(name = "password")
 	@NotBlank
@@ -70,7 +71,7 @@ public class User {
 	@LastModifiedDate
 	private LocalDate createdAt=LocalDate.now() ;
 	
-	 @ManyToMany
+	 @ManyToMany(fetch = FetchType.EAGER)
 	    @JoinTable(
 	            name = "user_roles",
 	            joinColumns = @JoinColumn(
@@ -80,13 +81,14 @@ public class User {
 	                    name = "role_id",referencedColumnName = "id"
 	            )
 	    )
+	 
 	    private Set<Role> roles  = new HashSet<>();
 
 	    @Override
 	    public String toString() {
 	        return "User{" +
 	                "id='" + getId() + '\'' +
-	                "username='" + userName + '\'' +
+	                "username='" + username + '\'' +
 	                ", email='" + email + '\'' +
 	                ", password='" + password + '\'' +
 	                '}';

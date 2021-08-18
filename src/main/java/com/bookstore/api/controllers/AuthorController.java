@@ -56,7 +56,6 @@ public class AuthorController {
 	public DataResult<Author> getByFirstName(@RequestParam String firstName) {
 		return this.authorService.getByFirstName(firstName);
 	}
-
 	@GetMapping("getByLastName")
 	public DataResult<Author> getByLastName(@RequestParam String lastName) {
 		return this.authorService.getByLastName(lastName);

@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
 
 import com.bookstore.domain.Book;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,6 +27,7 @@ public class CategoryDto {
 
 	private String name;
 
+	@JsonIgnore
 	private List<Book> books;
 
 }
