@@ -43,6 +43,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 		.antMatchers("/aoi/auth/resgiter").permitAll()
 		.antMatchers("/api/auth/login").permitAll()
+		.antMatchers("/api/users/**").permitAll()
 		.anyRequest().authenticated();
 
 		http.addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class);

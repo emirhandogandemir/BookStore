@@ -68,7 +68,8 @@ public class AuthManager implements AuthService {
 		String username = userLoginDto.getUsername();
         String password = userLoginDto.getPassword();
         try {
-            Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username,password));
+           
+        	Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username,password));
             Set<Role> roles = userRepository.findByUsername(username).get().getRoles();
             return tokenProvider.createToken(username,roles);
 
