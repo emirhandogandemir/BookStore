@@ -21,6 +21,7 @@ import com.bookstore.core.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 
+/*
 @Service 
 public class CustomUserDetailsService implements UserDetailsService {
 
@@ -32,10 +33,14 @@ public class CustomUserDetailsService implements UserDetailsService {
 	
 	@Override @Transactional
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		// userrepodan bu isimde bir kullanıcı olup olmadığına bakıyor
 		User user = userRepository.findByUsername(username).orElseThrow(()-> new UsernameNotFoundException("User not found with username : "+ username));
 		
+		
+		// roles değişkenine gelen kullanıcının tüm rollerini atadım
 		Set<Role> roles = user.getRoles();
 		
+		// geri dönen kullanıcıadı, password , ve sahip olduğu rollerdir
 		return org.springframework.security.core.userdetails.User
 				.withUsername(user.getUsername())
 				.password(user.getPassword())
@@ -57,3 +62,4 @@ public class CustomUserDetailsService implements UserDetailsService {
 	    }
 
 }
+*/

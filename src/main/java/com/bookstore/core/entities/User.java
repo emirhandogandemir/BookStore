@@ -51,8 +51,6 @@ public class User {
 
 	@Column(name = "email",unique = true)
 	@Email
-	@NotBlank
-	@NotNull
 	private String email;
 	
 	@NotBlank

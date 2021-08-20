@@ -2,38 +2,77 @@ package com.bookstore.api.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bookstore.business.abstracts.AuthService;
+
+import com.bookstore.business.abstracts.UserService;
+import com.bookstore.config.jwt.TokenProvider;
+import com.bookstore.core.entities.AuthToken;
+import com.bookstore.core.entities.User;
 import com.bookstore.core.entities.dtos.UserLoginDto;
 import com.bookstore.core.entities.dtos.UserRegisterDto;
-import com.bookstore.core.repository.UserRepository;
-import com.bookstore.core.utilities.security.AccessToken;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class AuthController {
-    @Autowired
-    private AuthService authService;
+	
+	@Autowired
+    private AuthenticationManager authenticationManager;
 
     @Autowired
-    private UserRepository userRepository;
+    private TokenProvider jwtTokenUtil;
 
-    @PostMapping("/register")
-    public ResponseEntity<AccessToken> register(@RequestBody UserRegisterDto userRegisterDto) {
-        AccessToken accessToken =  authService.register(userRegisterDto);
-        return ResponseEntity.ok(accessToken);
-
-    }
+    @Autowired
+    private UserService userService;
+	
+    
     @PostMapping("/login")
-    public ResponseEntity<AccessToken> login(@RequestBody UserLoginDto userLoginDto) {
-        AccessToken accessToken = authService.login(userLoginDto);
-        return ResponseEntity.ok(accessToken);
+    public ResponseEntity<?> generateToken(@RequestBody UserLoginDto loginUser) throws AuthenticationException {
+
+        final Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        loginUser.getUsername(),
+                        loginUser.getPassword()
+                )
+        );
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        final String token = jwtTokenUtil.generateToken(authentication);
+        return ResponseEntity.ok(new AuthToken(token));
+    }
+    @RequestMapping(value="/register", method = RequestMethod.POST)
+    public User saveUser(@RequestBody UserRegisterDto user){
+        return userService.save(user);
     }
 
+
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @RequestMapping(value="/adminping", method = RequestMethod.GET)
+    public String adminPing(){
+        return "Only Admins Can Read This";
+    }
+
+    @PreAuthorize("hasRole('USER')")
+    @RequestMapping(value="/userping", method = RequestMethod.GET)
+    public String userPing(){
+        return "Any User Can Read This";
+    }
+    @PreAuthorize("hasRole('SUPER_ADMIN')")
+    @RequestMapping(value="/superping", method = RequestMethod.GET)
+    public String superPing(){
+        return "Any SUPER_ADMIN Can Read This";
+    }
+    
 }

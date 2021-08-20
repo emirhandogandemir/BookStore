@@ -3,6 +3,8 @@ package com.bookstore.business.abstracts;
 import java.util.List;
 
 import com.bookstore.core.entities.User;
+import com.bookstore.core.entities.dtos.UserLoginDto;
+import com.bookstore.core.entities.dtos.UserRegisterDto;
 import com.bookstore.core.utilities.results.DataResult;
 import com.bookstore.core.utilities.results.Result;
 
@@ -17,5 +19,7 @@ public interface UserService {
 	DataResult<User> getById(int id);
 	DataResult<List<User>> getAll();
 	DataResult<User> getUserByEmail(String email);
-	
+	    List<User> findAll();
+	    User findOne(String username);
+		User save(UserRegisterDto user);
 }

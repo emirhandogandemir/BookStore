@@ -6,6 +6,8 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +21,7 @@ import com.bookstore.core.utilities.results.Result;
 
 @RestController
 @RequestMapping("/api/users")
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class UserController {
 
 	private final UserService userService;
@@ -28,6 +31,7 @@ public class UserController {
 	}
 
 	@PostMapping("add")
+	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<?> add(@Valid @RequestParam User user) {
 		return ResponseEntity.ok(this.userService.add(user));
 	}
@@ -53,6 +57,7 @@ public class UserController {
 	}
 
 	@GetMapping("getAll")
+	@PreAuthorize("hasAnyRole('ADMIN','USER')")
 	public DataResult<List<User>> getAll() {
 		return this.userService.getAll();
 	}
