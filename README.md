@@ -35,7 +35,10 @@ Spring Security - Business Rules Engine- Redis Cache eklenecektir devam ediyor .
 ---
 ---
 - `Spring Security`
-- <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Ftechnicalsand.com%2Fspring-boot-security-authentication-examples%2F&psig=AOvVaw1u1yVPW5h8JcYRbNf49JcF&ust=1629556915619000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCNjR193qv_ICFQAAAAAdAAAAABAD" width="15%" height="15%" />
+- <img src="https://user-images.githubusercontent.com/74687192/130250921-5a6bb016-f8f2-4df2-93c0-2c6fe911a963.png" width="15%" height="15%" />
+---
+- `mapStruct`
+- <img src="https://user-images.githubusercontent.com/74687192/130250909-0ec56070-d4aa-4f52-98d3-73013714ca49.png" width="15%" height="15%" />
 ---
 
 
