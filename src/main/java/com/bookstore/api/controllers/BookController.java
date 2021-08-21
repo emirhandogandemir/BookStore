@@ -60,7 +60,7 @@ public class BookController {
 		return this.bookService.getByName(name);
 	}
 	
-	@PreAuthorize("hasRole('USER')")
+	//@PreAuthorize("hasRole('USER')")
 	@GetMapping("getAll")
 	public DataResult<List<Book>> getAll() {
 		return this.bookService.getAll();
