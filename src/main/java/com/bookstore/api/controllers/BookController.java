@@ -34,22 +34,23 @@ public class BookController {
 		this.bookService = bookService;
 	}
 
+	@PreAuthorize("hasAnyRole('SUPER_ADMIN','ADMIN')")
 	@PostMapping("add")
 	public ResponseEntity<?> add(@Valid @RequestBody BookDto book) {
 		return ResponseEntity.ok(this.bookService.add(book));
 	}
-
+	@PreAuthorize("hasAnyRole('SUPER_ADMIN','ADMIN')")
 	@PostMapping("update")
 	public ResponseEntity<?> update(@Valid @RequestBody Book book) {
 		return ResponseEntity.ok(this.bookService.update(book));
 	}
-
+	@PreAuthorize("hasRole('SUPER_ADMIN')")
 	@PostMapping("delete")
 	public Result delete(@RequestParam int id) {
 		return this.bookService.delete(id);
 	}
 
-	@PreAuthorize("hasAnyRole('AMANIN','ADMIN')")
+	//@PreAuthorize("hasAnyRole('AMANIN','ADMIN')")
 	@GetMapping("getById")
 	public DataResult<Book> getById(@RequestParam int id) {
 		return this.bookService.getById(id);
