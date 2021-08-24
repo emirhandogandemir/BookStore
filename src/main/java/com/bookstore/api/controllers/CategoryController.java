@@ -21,7 +21,7 @@ import com.bookstore.domain.Category;
 import com.bookstore.domain.dtos.CategoryDto;
 
 @RestController
-@RequestMapping("/api/categories")
+@RequestMapping("/api/categories/")
 @CrossOrigin
 
 public class CategoryController {
@@ -62,6 +62,10 @@ public class CategoryController {
 	@GetMapping("getAll")
 	public DataResult<List<Category>> getAll() {
 		return this.categoryService.getAll();
+	}
+	@GetMapping("countGetAll")
+	public int countGetAll() {
+		return this.categoryService.countGetAll();
 	}
 
 }

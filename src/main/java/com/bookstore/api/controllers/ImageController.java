@@ -24,7 +24,7 @@ import com.bookstore.domain.Image;
 
 
 @RestController
-@RequestMapping("/api/images")
+@RequestMapping("/api/images/")
 @CrossOrigin
 public class ImageController {
 

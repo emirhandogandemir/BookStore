@@ -22,7 +22,7 @@ import com.bookstore.domain.Book;
 import com.bookstore.domain.dtos.BookDto;
 
 @RestController
-@RequestMapping("/api/books")
+@RequestMapping("/api/books/")
 @CrossOrigin
 public class BookController {
 
@@ -81,5 +81,10 @@ public class BookController {
 	public DataResult<List<Book>> getByCategory_Id(@RequestParam int categoryId) {
 		return this.bookService.getByCategory_Id(categoryId);
 	}
+	@GetMapping("countGetAll")
+	public int countGetAll() {
+		return this.bookService.countGetAll();
+	}
+	
 
 }

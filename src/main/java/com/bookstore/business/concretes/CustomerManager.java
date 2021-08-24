@@ -72,4 +72,9 @@ public class CustomerManager implements CustomerService {
 	return new SuccessDataResult<List<Customer>>(this.customerRepository.findAll());
 	}
 
+	@Override
+	public int countGetAll() {
+		return (int) this.customerRepository.count();
+	}
+
 }

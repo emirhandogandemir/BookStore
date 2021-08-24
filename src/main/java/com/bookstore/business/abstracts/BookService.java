@@ -29,6 +29,8 @@ public interface BookService {
 	DataResult<List<Book>>  getByPublisher_id(int publisherId);
 	
 	DataResult<List<Book>> getByCategory_Id(int categoryId);
+	
+	int countGetAll();
 
 	
 	

@@ -62,4 +62,9 @@ public class CategoryManager implements CategoryService {
 		return new SuccessDataResult<List<Category>>(this.categoryRepository.findAll());
 	}
 
+	@Override
+	public int countGetAll() {
+	return (int) this.categoryRepository.count();
+	}
+
 }

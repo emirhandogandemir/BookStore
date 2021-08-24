@@ -20,7 +20,7 @@ import com.bookstore.core.utilities.results.DataResult;
 import com.bookstore.core.utilities.results.Result;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/users/")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class UserController {
 
@@ -60,5 +60,9 @@ public class UserController {
 	//@PreAuthorize("hasAnyRole('ADMIN','USER')")
 	public DataResult<List<User>> getAll() {
 		return this.userService.getAll();
+	}
+	@GetMapping("countGetAll")
+	public int countGetAll() {
+		return this.userService.countGetAll();
 	}
 }

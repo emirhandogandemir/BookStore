@@ -20,4 +20,6 @@ public interface CategoryService {
 	DataResult<Category> getByName(String name);
 	
 	DataResult<List<Category>> getAll();
+	
+	int countGetAll();
 }

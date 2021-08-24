@@ -19,7 +19,7 @@ import com.bookstore.core.utilities.results.Result;
 import com.bookstore.domain.Admin;
 
 @RestController
-@RequestMapping("/api/admins")
+@RequestMapping("/api/admins/")
 @CrossOrigin
 public class AdminController {
 

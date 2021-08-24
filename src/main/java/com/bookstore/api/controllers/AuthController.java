@@ -24,7 +24,7 @@ import com.bookstore.core.entities.dtos.UserLoginDto;
 import com.bookstore.core.entities.dtos.UserRegisterDto;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/api/auth/")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class AuthController {
 	

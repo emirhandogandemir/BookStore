@@ -24,4 +24,6 @@ public interface CustomerService {
 	DataResult<Customer> getByPhoneNumber(String phoneNumber);
 	
 	DataResult<List<Customer>> getAll();
+	
+	int countGetAll();
 }

@@ -126,6 +126,11 @@ public class UserManager implements UserService ,UserDetailsService{
 		return userRepository.findByUsername(username);
 	}
 
+	@Override
+	public int countGetAll() {
+		return (int) this.userRepository.count();
+	}
+
 	
 
  

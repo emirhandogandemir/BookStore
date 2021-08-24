@@ -83,5 +83,10 @@ public class BookManager implements BookService {
 		return new SuccessDataResult<List<Book>>(this.bookRepository.findAll());
 	}
 
+	@Override
+	public int countGetAll() {
+		return (int) bookRepository.count();
+	}
+
 	
 }

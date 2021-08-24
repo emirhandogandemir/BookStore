@@ -20,7 +20,7 @@ import com.bookstore.core.utilities.results.Result;
 import com.bookstore.domain.Author;
 
 @RestController
-@RequestMapping("/api/authors")
+@RequestMapping("/api/authors/")
 @CrossOrigin
 public class AuthorController {
 

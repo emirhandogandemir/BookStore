@@ -21,7 +21,7 @@ import com.bookstore.domain.Publisher;
 import com.bookstore.domain.dtos.PublisherDto;
 
 @RestController
-@RequestMapping("/api/publishers")
+@RequestMapping("/api/publishers/")
 @CrossOrigin
 public class PublisherController {
 

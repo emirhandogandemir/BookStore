@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,7 +21,8 @@ import com.bookstore.domain.Customer;
 import com.bookstore.domain.dtos.CustomerDto;
 
 @RestController
-@RequestMapping("/api/customers")
+@RequestMapping("/api/customers/")
+@CrossOrigin
 public class CustomerController {
 
 	private final CustomerService customerService;
@@ -70,4 +72,9 @@ public class CustomerController {
 	public DataResult<List<Customer>> getAll() {
 		return this.customerService.getAll();
 	}
+	@GetMapping("countGetAll")
+		public int countGetAll() {
+		return this.customerService.countGetAll();
+	}
+	
 }
