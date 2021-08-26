@@ -34,7 +34,7 @@ public class BookController {
 		this.bookService = bookService;
 	}
 
-	@PreAuthorize("hasAnyRole('SUPER_ADMIN','ADMIN')")
+	//@PreAuthorize("hasAnyRole('SUPER_ADMIN','ADMIN')")
 	@PostMapping("add")
 	public ResponseEntity<?> add(@Valid @RequestBody BookDto book) {
 		return ResponseEntity.ok(this.bookService.add(book));
