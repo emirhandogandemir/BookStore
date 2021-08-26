@@ -10,6 +10,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
 import com.bookstore.domain.Book;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,7 +28,7 @@ public class PublisherDto {
 	private String email;
 
 	private String webSite;
-
+	@JsonIgnore
 	private List<Book> books;
 
 }

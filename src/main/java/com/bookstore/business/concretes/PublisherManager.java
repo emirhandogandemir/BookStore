@@ -31,7 +31,7 @@ public class PublisherManager implements PublisherService{
 
 	@Override
 	public Result add(PublisherDto publisherDto) {
-		this.publisherRepository.save(publisherMapper.dtoToModel(null));
+		this.publisherRepository.save(publisherMapper.dtoToModel(publisherDto));
 		return new SuccessResult(Messages.publisherAdded);
 	}
 
