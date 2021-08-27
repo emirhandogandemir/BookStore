@@ -61,6 +61,11 @@ public class UserController {
 	public DataResult<List<User>> getAll() {
 		return this.userService.getAll();
 	}
+	
+	@GetMapping("getByUsername")
+	public User getByUsername(@RequestParam String username) {
+		return this.userService.findOne(username);
+	}
 	@GetMapping("countGetAll")
 	public int countGetAll() {
 		return this.userService.countGetAll();

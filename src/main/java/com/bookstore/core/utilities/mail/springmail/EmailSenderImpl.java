@@ -12,6 +12,8 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
 
+import com.bookstore.core.entities.User;
+
 @Component
 public class EmailSenderImpl implements EmailSenderService {
 
@@ -23,7 +25,7 @@ public class EmailSenderImpl implements EmailSenderService {
 	public void sendSimpleEmail(String toEmail, String body, String subject) {
 		 SimpleMailMessage message = new SimpleMailMessage(); 
 	        message.setFrom("emirhandgndmr51@gmail.com");
-	        message.setTo(toEmail); 
+	        message.setTo(body); 
 	        message.setSubject(subject); 
 	        message.setText(body);
 	        System.out.println("Emaile gönderildi");
@@ -31,6 +33,7 @@ public class EmailSenderImpl implements EmailSenderService {
 	      
 	}
 
+	
 	@Override
 	public void sendEmailWithAttachment(String toEmail, String body, String subject, String attachment)
 			throws MessagingException {

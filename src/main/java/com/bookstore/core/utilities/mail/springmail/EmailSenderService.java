@@ -4,9 +4,11 @@ import javax.mail.MessagingException;
 
 import org.springframework.stereotype.Component;
 
+import com.bookstore.core.entities.User;
+
 
 public interface EmailSenderService {
-	void sendSimpleEmail(String toEmail, String body, String subject); // basit
+	void sendSimpleEmail(String toEmail, String body, String subject ); // basit
 
     void sendEmailWithAttachment(String toEmail, String body, String subject, String attachment) throws MessagingException; // ek dosya
 }

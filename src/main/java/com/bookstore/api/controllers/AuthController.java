@@ -1,6 +1,7 @@
 package com.bookstore.api.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -22,11 +23,17 @@ import com.bookstore.core.entities.AuthToken;
 import com.bookstore.core.entities.User;
 import com.bookstore.core.entities.dtos.UserLoginDto;
 import com.bookstore.core.entities.dtos.UserRegisterDto;
+import com.bookstore.core.utilities.mail.springmail.EmailSenderImpl;
+import com.bookstore.core.utilities.mail.springmail.EmailSenderService;
 
 @RestController
 @RequestMapping("/api/auth/")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class AuthController {
+	
+	@Value("${email.content}")
+	public String EMAIL_CONTENT;
+	
 	
 	@Autowired
     private AuthenticationManager authenticationManager;
@@ -36,6 +43,10 @@ public class AuthController {
 
     @Autowired
     private UserService userService;
+    
+    @Autowired
+    private EmailSenderService emailSenderService;
+    
 	
     
     @PostMapping("/login")
@@ -53,6 +64,8 @@ public class AuthController {
     }
     @RequestMapping(value="/register", method = RequestMethod.POST)
     public User saveUser(@RequestBody UserRegisterDto user){
+    	
+    	emailSenderService.sendSimpleEmail(user.getEmail(), EMAIL_CONTENT, "BookStore Sistem Kayıtı");
         return userService.save(user);
     }
 
