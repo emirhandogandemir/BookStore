@@ -18,6 +18,7 @@ import com.bookstore.business.abstracts.AuthorService;
 import com.bookstore.core.utilities.results.DataResult;
 import com.bookstore.core.utilities.results.Result;
 import com.bookstore.domain.Author;
+import com.bookstore.domain.dtos.AuthorDto;
 
 @RestController
 @RequestMapping("/api/authors/")
@@ -33,12 +34,12 @@ public class AuthorController {
 	}
 
 	@PostMapping("add")
-	public ResponseEntity<?> add(@Valid @RequestBody Author author) {
+	public ResponseEntity<?> add(@Valid @RequestBody AuthorDto author) {
 		return ResponseEntity.ok(this.authorService.add(author));
 	}
 
 	@PostMapping("update")
-	public ResponseEntity<?> update(@Valid @RequestBody Author author) {
+	public ResponseEntity<?> update(@Valid @RequestBody AuthorDto author) {
 		return ResponseEntity.ok(this.authorService.update(author));
 	}
 

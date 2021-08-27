@@ -5,12 +5,13 @@ import java.util.List;
 import com.bookstore.core.utilities.results.DataResult;
 import com.bookstore.core.utilities.results.Result;
 import com.bookstore.domain.Author;
+import com.bookstore.domain.dtos.AuthorDto;
 
 public interface AuthorService {
 
-	Result add(Author author);
+	Result add(AuthorDto authorDto);
 	
-	Result update(Author author);
+	Result update(AuthorDto authorDto);
 	
 	Result delete(int id);
 	

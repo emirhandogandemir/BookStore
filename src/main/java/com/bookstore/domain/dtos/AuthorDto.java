@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import com.bookstore.domain.Book;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,6 +30,6 @@ public class AuthorDto {
 	private String birthYear;
 
 	private String deathYear;
-
+	@JsonIgnore
 	private List<Book> books;
 }
