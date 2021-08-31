@@ -77,6 +77,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 		"/api/authors/delete",
                 		"/api/images/add",
                 		"/api/images/getAll",
+                		"/api/emails/send",
                 		"/swagger-ui.html",
                 		"/v2/api-docs",
                         "/swagger-resources",

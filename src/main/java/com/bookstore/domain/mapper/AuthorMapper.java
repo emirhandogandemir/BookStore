@@ -14,8 +14,5 @@ public interface AuthorMapper {
 	AuthorDto modelToDto(Author author);
 	
 	Author dtoToModel(AuthorDto authorDto);
-	
-	
-	
-	
+
 }

@@ -12,6 +12,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
 
+import com.bookstore.core.entities.Email;
 import com.bookstore.core.entities.User;
 
 @Component
@@ -52,6 +53,19 @@ public class EmailSenderImpl implements EmailSenderService {
 
 	    emailSender.send(message);
 
+	}
+
+
+	@Override
+	public void sendSimpleEmail(Email email) {
+		SimpleMailMessage message = new SimpleMailMessage();
+		message.setFrom("emirhandgndmr51@gmail.com");
+		message.setTo("emirhandgndmr@mail.com.tr");
+		message.setSubject(email.getSubject());
+		message.setText(email.getPhoneNumber()+email.getBody());
+		emailSender.send(message);
+		
+		
 	}
 
 }

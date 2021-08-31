@@ -33,7 +33,7 @@ public class UserManager implements UserService ,UserDetailsService{
 
 	private final UserRepository userRepository;
 	
-	 @Resource(name = "roleService")
+	@Resource(name = "roleService")
 	private final RoleService roleService;
 	
 	@Autowired
