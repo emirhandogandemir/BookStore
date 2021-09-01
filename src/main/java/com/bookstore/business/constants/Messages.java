@@ -34,7 +34,7 @@ public class Messages {
 	public static String userUpdated="User güncellendi";
 	public static String userDeleted="User silindi";
 	
-	public static String cartAdded="User eklendi";
-	public static String cartUpdated="User güncellendi";
-	public static String cartDeleted="User silindi";
+	public static String cartAdded="Cart eklendi";
+	public static String cartUpdated="Cart güncellendi";
+	public static String cartDeleted="Cart silindi";
 }
