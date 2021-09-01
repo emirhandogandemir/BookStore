@@ -27,7 +27,7 @@ public class CategoryDto {
 
 	private String name;
 
-	@JsonIgnore
+	
 	private List<Book> books;
 
 }

@@ -73,6 +73,7 @@ public class Book {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "image_id",nullable=false)
 	private Image image;
+	
 
 
 
