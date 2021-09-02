@@ -41,7 +41,7 @@ public class Cart {
 	private User user;
 	
 	
-	 @ManyToMany(fetch = FetchType.EAGER)
+	 @ManyToMany(fetch =FetchType.LAZY)
 	    @JoinTable(
 	            name = "cart_books",
 	            joinColumns = @JoinColumn(
@@ -52,5 +52,5 @@ public class Cart {
 	            )
 	    )
 	 
-	    private Set<Book> books  = new HashSet<>();
+	    private Set<Book> books  = new HashSet<Book>();
 }

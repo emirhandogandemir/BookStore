@@ -9,17 +9,20 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bookstore.business.abstracts.BookCardService;
 import com.bookstore.business.abstracts.BookService;
 import com.bookstore.core.utilities.results.DataResult;
 import com.bookstore.core.utilities.results.Result;
 import com.bookstore.domain.Book;
 import com.bookstore.domain.dtos.BookDto;
+import com.bookstore.domain.dtos.CartDto;
 
 @RestController
 @RequestMapping("/api/books/")
@@ -27,10 +30,10 @@ import com.bookstore.domain.dtos.BookDto;
 public class BookController {
 
 	private final BookService bookService;
-
+	private final BookCardService bookCardService;
 	
-	public BookController(BookService bookService) {
-		
+	public BookController(BookService bookService,BookCardService bookCardService) {
+		this.bookCardService=bookCardService;
 		this.bookService = bookService;
 	}
 
@@ -86,5 +89,9 @@ public class BookController {
 		return this.bookService.countGetAll();
 	}
 	
+	@PostMapping("book/{cartId}/{bookId}")
+	public void AddBookToCard(@PathVariable("cartId") int cartId, @PathVariable("bookId") int bookId) {
+		this.bookCardService.addAllBookCart(cartId, bookId);
+	}
 
 }
