@@ -30,6 +30,7 @@ public class CartManager implements CartService{
 
 	@Override
 	public Result add(CartDto cartDto) {
+		cartDto.setBooks(null);
 		this.cartRepository.save(cartMapper.dtoToModel(cartDto));
 		return new SuccessResult(Messages.cartAdded);
 	}

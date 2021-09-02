@@ -1,6 +1,7 @@
 package com.bookstore.api.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -69,5 +70,9 @@ public class UserController {
 	@GetMapping("countGetAll")
 	public int countGetAll() {
 		return this.userService.countGetAll();
+	}
+	@GetMapping("findTopByOrderByIdDesc")
+	public Optional<User> findTopByOrderByIdDesc(){
+		return this.userService.findTopByOrderByIdDesc();
 	}
 }

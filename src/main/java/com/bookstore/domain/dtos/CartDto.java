@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 import com.bookstore.core.entities.User;
+import com.bookstore.core.entities.dtos.UserRegisterDto;
 import com.bookstore.domain.Book;
 
 import lombok.AllArgsConstructor;

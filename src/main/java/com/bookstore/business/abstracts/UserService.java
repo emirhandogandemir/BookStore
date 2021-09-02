@@ -1,6 +1,7 @@
 package com.bookstore.business.abstracts;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.bookstore.core.entities.User;
 import com.bookstore.core.entities.dtos.UserLoginDto;
@@ -29,4 +30,6 @@ public interface UserService {
 	User save(UserRegisterDto user);
 	
 	int countGetAll();
+	
+  Optional< User> findTopByOrderByIdDesc();
 }

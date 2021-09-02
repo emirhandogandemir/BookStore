@@ -3,6 +3,7 @@ package com.bookstore.business.concretes;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import javax.annotation.Resource;
@@ -15,6 +16,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.bookstore.business.abstracts.CartService;
 import com.bookstore.business.abstracts.RoleService;
 import com.bookstore.business.abstracts.UserService;
 import com.bookstore.business.constants.Messages;
@@ -27,11 +29,13 @@ import com.bookstore.core.utilities.results.DataResult;
 import com.bookstore.core.utilities.results.Result;
 import com.bookstore.core.utilities.results.SuccessDataResult;
 import com.bookstore.core.utilities.results.SuccessResult;
+import com.bookstore.domain.dtos.CartDto;
 
 @Service(value = "userService")
 public class UserManager implements UserService ,UserDetailsService{
 
 	private final UserRepository userRepository;
+
 	
 	@Resource(name = "roleService")
 	private final RoleService roleService;
@@ -43,6 +47,7 @@ public class UserManager implements UserService ,UserDetailsService{
 
 		this.roleService=roleService;
 		this.userRepository = userRepository;
+		
 	}
 
 	   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -100,7 +105,9 @@ public class UserManager implements UserService ,UserDetailsService{
 	@Override
 	public User save(UserRegisterDto user) {
 
+		
 		User nUser = user.getUserFromDto();
+		
 		nUser.setPassword(bcryptEncoder.encode(user.getPassword()));
 		
 		 Role role = roleService.findByName("USER");
@@ -129,6 +136,11 @@ public class UserManager implements UserService ,UserDetailsService{
 	@Override
 	public int countGetAll() {
 		return (int) this.userRepository.count();
+	}
+
+	@Override
+	public Optional<User> findTopByOrderByIdDesc() {
+		return this.userRepository.findTopByOrderByIdDesc();
 	}
 
 	

@@ -37,11 +37,11 @@ public class Cart {
 	private int id;
 	
 	@OneToOne
-	@JoinColumn(name="user_id")
+	@JoinColumn(name="user_id",nullable = false)
 	private User user;
 	
 	
-	 @ManyToMany(fetch =FetchType.LAZY)
+	 @ManyToMany(fetch =FetchType.EAGER)
 	    @JoinTable(
 	            name = "cart_books",
 	            joinColumns = @JoinColumn(

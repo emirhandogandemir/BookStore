@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.bookstore.business.abstracts.CartService;
 import com.bookstore.business.abstracts.UserService;
 import com.bookstore.config.jwt.TokenProvider;
 import com.bookstore.core.entities.AuthToken;
@@ -25,6 +25,7 @@ import com.bookstore.core.entities.dtos.UserLoginDto;
 import com.bookstore.core.entities.dtos.UserRegisterDto;
 import com.bookstore.core.utilities.mail.springmail.EmailSenderImpl;
 import com.bookstore.core.utilities.mail.springmail.EmailSenderService;
+import com.bookstore.domain.dtos.CartDto;
 
 @RestController
 @RequestMapping("/api/auth/")
@@ -34,6 +35,8 @@ public class AuthController {
 	@Value("${email.content}")
 	public String EMAIL_CONTENT;
 	
+	@Autowired
+	private  CartService cartService;
 	
 	@Autowired
     private AuthenticationManager authenticationManager;
@@ -64,7 +67,7 @@ public class AuthController {
     }
     @RequestMapping(value="/register", method = RequestMethod.POST)
     public User saveUser(@RequestBody UserRegisterDto user){
-    	
+   
     	emailSenderService.sendSimpleEmail(user.getEmail(), EMAIL_CONTENT, "BookStore Sistem Kayıtı");
         return userService.save(user);
     }
