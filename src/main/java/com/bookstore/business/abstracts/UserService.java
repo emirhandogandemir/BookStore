@@ -27,7 +27,7 @@ public interface UserService {
 
 	User findOne(String username);
 
-	User save(UserRegisterDto user);
+	Result save(UserRegisterDto user);
 	
 	int countGetAll();
 	

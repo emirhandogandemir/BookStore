@@ -103,7 +103,7 @@ public class UserManager implements UserService ,UserDetailsService{
 	}
 
 	@Override
-	public User save(UserRegisterDto user) {
+	public Result save(UserRegisterDto user) {
 
 		
 		User nUser = user.getUserFromDto();
@@ -118,7 +118,8 @@ public class UserManager implements UserService ,UserDetailsService{
 			roleSet.add(role);
 		}
 		nUser.setRoles(roleSet);
-		return userRepository.save(nUser);
+		 this.userRepository.save(nUser);
+		 return new SuccessResult("eklendi");
 	}
 
 	@Override

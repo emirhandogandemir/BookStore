@@ -23,9 +23,11 @@ import com.bookstore.core.entities.AuthToken;
 import com.bookstore.core.entities.User;
 import com.bookstore.core.entities.dtos.UserLoginDto;
 import com.bookstore.core.entities.dtos.UserRegisterDto;
-import com.bookstore.core.utilities.mail.springmail.EmailSenderImpl;
 import com.bookstore.core.utilities.mail.springmail.EmailSenderService;
-import com.bookstore.domain.dtos.CartDto;
+import com.bookstore.core.utilities.results.Result;
+import com.bookstore.domain.mapper.UserMapper;
+
+
 
 @RestController
 @RequestMapping("/api/auth/")
@@ -37,6 +39,9 @@ public class AuthController {
 	
 	@Autowired
 	private  CartService cartService;
+	
+	@Autowired
+	private UserMapper userMapper;
 	
 	@Autowired
     private AuthenticationManager authenticationManager;
@@ -66,8 +71,8 @@ public class AuthController {
         return ResponseEntity.ok(new AuthToken(token));
     }
     @RequestMapping(value="/register", method = RequestMethod.POST)
-    public User saveUser(@RequestBody UserRegisterDto user){
-   
+    public Result saveUser(@RequestBody UserRegisterDto user){
+    	
     	emailSenderService.sendSimpleEmail(user.getEmail(), EMAIL_CONTENT, "BookStore Sistem Kayıtı");
         return userService.save(user);
     }
