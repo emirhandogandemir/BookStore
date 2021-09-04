@@ -39,8 +39,10 @@ Tech Stack ::
 - <img src="https://user-images.githubusercontent.com/74687192/130250921-5a6bb016-f8f2-4df2-93c0-2c6fe911a963.png" width="15%" height="15%" />
 ---
 - `mapStruct`
-- <img src="https://user-images.githubusercontent.com/74687192/130250909-0ec56070-d4aa-4f52-98d3-73013714ca49.png" width="15%" height="15%" />
+- 
 ---
+- `Postman`
+- <img src="https://user-images.githubusercontent.com/74687192/132103197-2d8db91f-1d30-47cb-88d0-f791f3fb6e23.png" width="15%" height="15%" />
 
 `Projeyi oluşturuken ele aldığım yazılar : `
 
