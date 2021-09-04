@@ -41,6 +41,9 @@ Tech Stack ::
 - `Spring Aop`
 - <img src="https://user-images.githubusercontent.com/74687192/132103277-8986354c-fe06-41c0-a243-ac1b806fcd1a.jpg" width="15%" height="15%" />
 ---
+- `Spring Mail`
+- <img src="https://user-images.githubusercontent.com/74687192/132103867-90e6550f-ee54-4875-a4da-57e50f8a953e.png" width="15%" height="15%" />
+--- 
 - `mapStruct`
 - <img src="https://user-images.githubusercontent.com/74687192/132103310-a5b8c754-121c-4a24-a516-c42a8fbc3d9d.png" width="15%" height="15%" />
 ---
