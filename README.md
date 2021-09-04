@@ -38,11 +38,16 @@ Tech Stack ::
 - `Spring Security`
 - <img src="https://user-images.githubusercontent.com/74687192/130250921-5a6bb016-f8f2-4df2-93c0-2c6fe911a963.png" width="15%" height="15%" />
 ---
+`Spring Aop`
+<img src="https://user-images.githubusercontent.com/74687192/132103277-8986354c-fe06-41c0-a243-ac1b806fcd1a.jpg" width="15%" height="15%" />
+---
 - `mapStruct`
 - 
 ---
 - `Postman`
 - <img src="https://user-images.githubusercontent.com/74687192/132103197-2d8db91f-1d30-47cb-88d0-f791f3fb6e23.png" width="15%" height="15%" />
+---
+
 
 `Projeyi oluşturuken ele aldığım yazılar : `
 
