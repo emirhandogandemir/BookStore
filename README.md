@@ -42,4 +42,5 @@ Tech Stack ::
 - <img src="https://user-images.githubusercontent.com/74687192/130250909-0ec56070-d4aa-4f52-98d3-73013714ca49.png" width="15%" height="15%" />
 ---
 
-
+`Projeyi oluşturuken ele aldığım yazılar : `
+ Spring Aop :[springAop](https://medium.com/@emirhandgndmr51/spring-boot-aop-kullanımı-9c2977500c63)
