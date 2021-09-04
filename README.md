@@ -34,7 +34,6 @@ Tech Stack ::
 - `Spring Cache`
 - <img src="https://user-images.githubusercontent.com/74687192/122648935-035f1680-d134-11eb-8a5f-df10d8c589c0.png" width="15%" height="15%" />
 ---
----
 - `Spring Security`
 - <img src="https://user-images.githubusercontent.com/74687192/130250921-5a6bb016-f8f2-4df2-93c0-2c6fe911a963.png" width="15%" height="15%" />
 ---
