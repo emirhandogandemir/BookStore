@@ -38,8 +38,8 @@ Tech Stack ::
 - `Spring Security`
 - <img src="https://user-images.githubusercontent.com/74687192/130250921-5a6bb016-f8f2-4df2-93c0-2c6fe911a963.png" width="15%" height="15%" />
 ---
-`Spring Aop`
-<img src="https://user-images.githubusercontent.com/74687192/132103277-8986354c-fe06-41c0-a243-ac1b806fcd1a.jpg" width="15%" height="15%" />
+- `Spring Aop`
+- <img src="https://user-images.githubusercontent.com/74687192/132103277-8986354c-fe06-41c0-a243-ac1b806fcd1a.jpg" width="15%" height="15%" />
 ---
 - `mapStruct`
 - <img src="https://user-images.githubusercontent.com/74687192/132103310-a5b8c754-121c-4a24-a516-c42a8fbc3d9d.png" width="15%" height="15%" />
