@@ -24,6 +24,7 @@ import com.bookstore.domain.Book;
 import com.bookstore.domain.dtos.BookDto;
 import com.bookstore.domain.dtos.CartDto;
 
+
 @RestController
 @RequestMapping("/api/books/")
 @CrossOrigin
@@ -94,4 +95,8 @@ public class BookController {
 		this.bookCardService.addAllBookCart(cartId, bookId);
 	}
 
+	@GetMapping("/getByPagination")
+	public DataResult<List<Book>> getAllByPagination(@RequestParam int pageNo,@RequestParam int size){
+		return this.bookService.getAllByBookByPagination(pageNo, size);
+	}
 }

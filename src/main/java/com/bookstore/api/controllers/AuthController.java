@@ -70,6 +70,9 @@ public class AuthController {
         final String token = jwtTokenUtil.generateToken(authentication);
         return ResponseEntity.ok(new AuthToken(token));
     }
+    
+    
+    
     @RequestMapping(value="/register", method = RequestMethod.POST)
     public Result saveUser(@RequestBody UserRegisterDto user){
     	

@@ -53,6 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 		"/api/users/getByCategoryId",
                 		"/api/users/getByPublisherId",
                 		"/api/users/getByAuthorId",
+                		"/api/books/getByPagination",
                 		"/api/users/countGetAll",
                 		"/api/users/getByUsername",
                 		"/api/users/findTopByOrderByIdDesc",

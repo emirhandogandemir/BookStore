@@ -3,6 +3,8 @@ package com.bookstore.business.concretes;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.bookstore.business.abstracts.BookService;
@@ -88,5 +90,18 @@ public class BookManager implements BookService {
 		return (int) bookRepository.count();
 	}
 
+	@Override
+	public DataResult<List<Book>> getAllByBookByPagination(int pageNo, int size) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/*
+	@Override
+	public DataResult<List<Book>> getAllByBookByPagination(int pageNo, int size) {
+		Pageable pageable = PageRequest.of(pageNo-1, size);
+		return new SuccessDataResult<List<Book>>(this.bookRepository.getAll(pageable));
+	}
+*/
 	
 }

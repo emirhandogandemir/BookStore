@@ -7,6 +7,7 @@ import com.bookstore.core.utilities.results.Result;
 import com.bookstore.domain.Book;
 import com.bookstore.domain.dtos.BookDto;
 
+
 public interface BookService {
 
 	Result add(BookDto book);
@@ -27,6 +28,8 @@ public interface BookService {
 	//List<Book> findByNameOrderName(String name);
 	
 	DataResult<List<Book>>  getByPublisher_id(int publisherId);
+	
+	DataResult<List<Book>> getAllByBookByPagination(int pageNo,int size);// iş arayan
 	
 	DataResult<List<Book>> getByCategory_Id(int categoryId);
 	
