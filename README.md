@@ -34,12 +34,24 @@ Tech Stack ::
 - `Spring Cache`
 - <img src="https://user-images.githubusercontent.com/74687192/122648935-035f1680-d134-11eb-8a5f-df10d8c589c0.png" width="15%" height="15%" />
 ---
----
 - `Spring Security`
 - <img src="https://user-images.githubusercontent.com/74687192/130250921-5a6bb016-f8f2-4df2-93c0-2c6fe911a963.png" width="15%" height="15%" />
 ---
+- `Spring Aop`
+- <img src="https://user-images.githubusercontent.com/74687192/132103277-8986354c-fe06-41c0-a243-ac1b806fcd1a.jpg" width="15%" height="15%" />
+---
+- `Spring Mail`
+- <img src="https://user-images.githubusercontent.com/74687192/132103867-90e6550f-ee54-4875-a4da-57e50f8a953e.png" width="15%" height="15%" />
+--- 
 - `mapStruct`
-- <img src="https://user-images.githubusercontent.com/74687192/130250909-0ec56070-d4aa-4f52-98d3-73013714ca49.png" width="15%" height="15%" />
+- <img src="https://user-images.githubusercontent.com/74687192/132103310-a5b8c754-121c-4a24-a516-c42a8fbc3d9d.png" width="15%" height="15%" />
+---
+- `Postman`
+- <img src="https://user-images.githubusercontent.com/74687192/132103197-2d8db91f-1d30-47cb-88d0-f791f3fb6e23.png" width="15%" height="15%" />
 ---
 
 
+`Projeyi oluşturuken ele aldığım yazılar : `
+
+
+ 1 )[Spring Aop](https://medium.com/@emirhandgndmr51/spring-boot-aop-kullanımı-9c2977500c63)
